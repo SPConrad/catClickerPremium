@@ -4,37 +4,20 @@ $(function(){
 			if (!localStorage.catArray){
 				localStorage.catArray = JSON.stringify([]);
 			} 
-			localStorage.catArray = '{"cats": []}';
+			localStorage.catArray = JSON.stringify([]);
 		},
 		add: function(obj){
-			var data = JSON.parse(localStorage.catArray).cats;
-			//data.push(obj);
-			console.log(JSON.parse(localStorage.catArray));
-			console.log(JSON.parse(localStorage.catArray).cats);
-			console.log(data);
-			console.log(obj);
-			data.push(obj);
-			console.log(data);
-			localStorage.catArray.cats = JSON.stringify(data);
-			console.log(localStorage.catArray.cats);
-			console.log("------------------------------- END ADD -------------------------------")
+			var data = JSON.parse(localStorage.catArray);
+            data.push(obj);
+            localStorage.catArray = JSON.stringify(data);
 		},
 		getCats: function(){
-
-			return JSON.parse(localStorage.catArray).cats;
+			return JSON.parse(localStorage.catArray);
 		},
 		incrementClick: function(cat){
-			cat.clickCount = cat.clickCount + 1;
-			//console.log(JSON.parse(localStorage.catArray)[cat.name]);
-			//console.log(cat);
-			//console.log(JSON.parse(localStorage.catArray));
-			//console.log(JSON.parse(localStorage.catArray)[cat.name]);
-			//console.log(JSON.parse(localStorage.catArray)[cat.name].clickCount);
-			JSON.parse(localStorage.catArray)[cat.name].clickCount = 500;
-			//console.log(JSON.parse(localStorage.catArray)[cat.name].clickCount);
-			//console.log(JSON.parse(localStorage.catArray)[cat.name]);
-			//console.log(JSON.parse(localStorage.catArray)[cat.name]);
-
+			var catArray = JSON.parse(localStorage.catArray)
+			catArray[cat.name].clickCount += 1;
+			localStorage.catArray = JSON.stringify(catArray);
 		},
 		getCat: function(num){
 			var returnString = JSON.parse(localStorage.catArray)[num];
@@ -46,8 +29,8 @@ $(function(){
 
 	var octopus = {
 		addCats: function(numOfCats) {
-			for (var i = 0; i < 1; i++){
-				model.add('{"name": i, "clickCount": 0,"url": "img/cat" + i + ".jpg"}')
+			for (var i = 0; i < 5; i++){
+				model.add({"name": i, "clickCount": 0,"url": "img/cat" + i + ".jpg"})
 			}
 		},
 		getCats: function(){
