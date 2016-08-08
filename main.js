@@ -14,14 +14,14 @@ $(function(){
 		getCats: function(){
 			return JSON.parse(localStorage.catArray);
 		},
-		incrementClick: function(cat){
+		incrementClick: function(num){
 			var catArray = JSON.parse(localStorage.catArray)
-			catArray[cat.name].clickCount += 1;
+			catArray[num].clickCount += 1;
 			localStorage.catArray = JSON.stringify(catArray);
 		},
 		getCat: function(num){
+			this.incrementClick(num);
 			var returnString = JSON.parse(localStorage.catArray)[num];
-			this.incrementClick(returnString);
 			return {'name': returnString.name, 'clickCount': returnString.clickCount, 'url': returnString.url};
 		}
 	};
@@ -72,12 +72,14 @@ $(function(){
 	var imageView = {
 		init: function(){
 			this.displayArea = $('#bigCat').get(0);
+			this.clickCounter = $('#clickCounter').get(0);
 			var url = 'img/noCat.jpg';
 			imageView.render({'name': 'Starter', 'url': url, 'clickCount': 0});
 		},
 		render: function(cat){
 			var htmlStr = '<img id="bigCat" class="bigCatImage" src="' + cat.url + '">';
 			this.displayArea.innerHTML  = htmlStr;
+			this.clickCounter.innerHTML = cat.clickCount;
 		}
 	};
 
