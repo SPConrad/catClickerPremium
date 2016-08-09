@@ -100,7 +100,8 @@ var octopus = {
     	model.currentCat.name = this.checkAndChange(model.currentCat.name, inputtedName);
     	model.currentCat.clickCount = this.checkAndChange(model.currentCat.clickCount, inputtedClickCount);
     	model.currentCat.imgSrc = this.checkAndChange(model.currentCat.imgSrc, inputtedURL);
-
+    	catView.render();
+    	catListView.render();
     }
 };
 
