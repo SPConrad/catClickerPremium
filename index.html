@@ -2,19 +2,27 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title>Cat Clicker Premium Pro Hyper Cross Giantbomb Dash"</title>
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<ul id="buttons" class="buttons"></ul>
-	<div id="bigCat" class="mainImage"></div>
-	<div id="clickCounter" class="clickCounter"></div>
-
-
-
-
-
-
+    <ul id="cat-list"></ul>
+    <div id="cat">
+        <h2 id="cat-name"></h2>
+        <div id="cat-count"></div>
+        <img id="cat-img" class= "catImage" src="" alt="cute cat">
+    </div>
+    <button id="adminButton">Admin Button</button>
+    <div id="adminArea">
+    	<form id="adminForm" style="visibility: hidden;">
+    		<input type="text" name="name" id="admin-cat-name">
+    		<input type="text" name="clickCount" id="admin-cat-clickCount">
+    		<input type="text" name="url" id="admin-cat-URL">
+    		<br>
+    		<input type="button" name="confirmButton" id="admin-confirm-button" onClick = "" value="Confirm Changes">
+    		<input type="button" id="admin-cancel-button" value="Cancel">
+    	</form>
+    </div>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="main.js"></script>
 </body>
